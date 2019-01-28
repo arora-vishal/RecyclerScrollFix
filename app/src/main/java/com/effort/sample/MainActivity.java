@@ -1,6 +1,7 @@
 package com.effort.sample;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -49,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.notifyDataSetChanged();
 
-        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+        rvBusStations.post(new Runnable() {
             @Override
-            public void onClick(View v) {
+            public void run() {
                 if (!rvBusStations.hasNestedScrollingParent(ViewCompat.TYPE_NON_TOUCH)) {
                     rvBusStations.startNestedScroll(View.SCROLL_AXIS_VERTICAL, ViewCompat.TYPE_NON_TOUCH);
                 }
